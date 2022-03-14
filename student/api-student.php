@@ -7,7 +7,7 @@
     $limit = ($page -1 ) * $numPage;
     $sql = $a->select('student.id, student.name, student.msv, student.address, student.date, class.name as mon_hoc'
     ,'student',
-        'inner join `class` ON student.class = class.id limit '.$limit.', 3'
+        'inner join `class` ON student.class = class.id ORDER BY id DESC limit '.$limit.', 3'
     );
     // $count = $limit + 1;
     foreach($sql as $post)

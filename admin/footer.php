@@ -5,19 +5,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript">
         // xóa student
-        $(document).ready(function(){
-            $('.delete').click(function(e){
-                e.preventDefault();
-                const id = $(this).attr('data-id');
-                $.ajax({
-                    type: 'get',
-                    url: './student/delete.php?id='+id,
-                    success: function(response){
-                        $('#cate'+id).remove();
-                    }
-                })
-            });
-        });
+    
+        $('#results').on('click','.delete',function(e){
+            e.preventDefault();
+            const id = $(this).attr('data-id');
+            $.post('./student/delete.php',{id: id},function(res){
+                $('#cate'+id).remove();
+            })
+        })
+
         // load more
         var currentPage = 1;
         function loadMore(that){

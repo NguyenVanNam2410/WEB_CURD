@@ -1,11 +1,10 @@
 <?php
     include_once '../connect.php';
     $a  = new DB;
-    // echo(isset($_GET['id']));
-    if(isset($_GET['id']))
+    echo(($_REQUEST['id']));
+    if(isset($_REQUEST['id']))
     {
-        
-        if($a->Delete('student',$_GET['id']) == true)
+        if($a->Delete('student',$_REQUEST['id']) == true)
         {
             header('location: ../index.php'); 
         }else{

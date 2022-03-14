@@ -17,7 +17,7 @@
         }else{
             $posts = $a->select('student.id, student.name, student.msv, student.address, student.date, class.name as mon_hoc'
             ,'student',
-            'inner join `class` ON student.class = class.id  order by id DESC'
+            'inner join `class` ON student.class = class.id ORDER BY ID DESC limit 0, 3'
         );
         }
         $class = $a->select('*','class','','');
@@ -85,9 +85,9 @@
                     ?>
                 </tbody>
             </table>
-            <!-- <p class="button" style="text-align: center;">
+            <p class="button" style="text-align: center;">
                 <a href="javascript:" onclick="loadMore(this)" class="btn btn-info load_hide"  id="load_hide" >load More</a>
-            </p> -->
+            </p>
             </div>
         </div>
     <style>
